@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" prefix="dc: http://purl.org/dc/elements/1.1/">
+<head><meta name="author" content="Created with Quandary by Half-Baked Software, registered to Rashid Saleem."/><meta name="keywords" content="Quandary, Hot Potatoes, Half-Baked Software, Windows, University of Victoria"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<!-- This is the core XHTML code which is used to build the exercise page. -->
+
+<meta name="dc:creator" content="Rashid Saleem" />
+<meta name="dc:title" content="The Ninja World" />
+
+
+<title>
+The Ninja World
+</title>
+
+<!-- Made with executable version 3.0 Release 0 Build 5 -->
+
+<style>
+
+
+/* This is the CSS stylesheet used in the exercise. */
+/* Elements in square brackets are replaced by data based on configuration settings when the exercise is built. */
+
+/* Made with executable version 3.0 Release 0 Build 5 */
+
+/* CSS variables for colours. */
+:root{
+	--strFontFace:       Geneva,Arial,sans-serif;
+	--strFontSize:       medium;
+	--strTextColor:      #000000;
+	--strTitleColor:     #000000;
+
+	--strFuncLightColor: #eeeeee;
+	--strFuncShadeColor: #6e6e6e;
+	--strLinkColor:      #0000cc;
+	--strVLinkColor:     #0000ff;
+	
+	--strNavBarColor:    #999999;
+	--strNavLightColor:  #cccccc;
+	--strNavShadeColor:  #4c4c4c;
+	--strNavTextColor:   #000000;
+	
+	--strPageBGColor:    #ffffff;
+	--strExBGColor:      #dddddd;
+}
+
+body{
+	font-family: var(--strFontFace);
+	background-color: var(--strPageBGColor);
+	color: var(--strTextColor);
+ 
+	margin-right: 5%;
+	margin-left: 5%;
+	font-size: var(--stFontSize);
+}
+
+p{
+	text-align: left;
+	margin: 0px;
+}
+
+div,span,td{
+	color: var(--strTextColor);
+}
+
+div.Titles{
+	padding: 0.5em;
+	text-align: center;
+	color: var(--strTitleColor);
+}
+
+button{
+	display: inline;
+	font-size: 100%; /* Required to make IE scale button caption text size! */
+}
+
+.ExerciseTitle{
+	font-size: 140%;
+	color: var(--strTitleColor);
+}
+
+div#Timer{
+	padding: 0.3em;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+span#TimerText{
+	padding: 0.3em;
+	border-width: 1px;
+	border-style: solid;
+	font-weight: bold;
+	display: none;
+}
+
+div.ControlButtons{
+	text-align: center;
+}
+
+.Instructions{
+	margin-top: 1em;
+}
+
+.DecisionPointTitle{
+
+}
+
+.DecisionPointText{
+	text-align: left;
+	margin: auto;
+}
+
+td#AssetDisplay{
+	display: none;
+}
+
+div.Assets{
+	margin: 20px;
+}
+
+table.AssetTable{
+	border-width: 3px;
+	border-style: double;
+	border-color: var(--strTextColor);
+	padding: 0.3em;
+}
+
+table.AssetTable th{
+	background-color: var(--strTextColor);
+	color: var(--strExBGColor);
+	padding: 0.3em;
+}
+
+div.LinkList{
+	margin-top: 10px;
+}
+
+table.LinkTable{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+.FeedbackText{
+	color: var(--strTitleColor);
+}
+
+table.DPTable{
+	margin-left: auto;
+	margin-right: auto;
+	border-width: 0px;
+	padding: 10px;
+	vertical-align: top;
+}
+
+div.Feedback {
+	background-color: var(--strPageBGColor);
+	left: 33%;
+	width: 34%;
+	top: 33%;
+	z-index: 1;
+	border-style: solid;
+	border-width: 1px;
+	padding: 5px;
+	text-align: center;
+	color: var(--strTitleColor);
+	position: absolute;
+	display: none;
+}
+
+div.DecisionPoint{
+	background-color: var(--strExBGColor);
+	text-align: center;
+	color: var(--strTextColor);
+	padding: 0.5em;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	border-color: var(--strTextColor);
+	margin: 1px;
+}
+
+.FuncButton {
+	border-style: solid;
+	border-radius: 0.5em;
+	padding: 0.5em;
+	min-width: 3em;
+
+	border-left-color: var(--strFuncLightColor);
+	border-top-color: var(--strFuncLightColor);
+	border-right-color: var(--strFuncShadeColor);
+	border-bottom-color: var(--strFuncShadeColor);
+	color: var(--strTextColor);
+	background-color: var(--strExBGColor);
+
+	border-width: 1pt;
+	cursor: pointer;	
+	box-shadow: 0.2em 0.3em 0.2em var(--strFuncShadeColor);
+}
+
+.FuncButton:active {
+	box-shadow: none;
+}
+
+.FuncButton:hover{
+	color: var(--strExBGColor);
+	background-color: var(--strTextColor);
+}
+
+
+/*BeginNavBarStyle*/
+
+div.NavButtonBar{
+	background-color: var(--strNavBarColor);
+	text-align: center;
+	margin: 0.25rem 0;
+	clear: both;
+	font-size: 1rem;
+	padding: 0.2rem;
+}
+
+.NavButton {
+	border-style: solid;
+	border-radius: 0.5em;
+	padding: 0.5em;
+	min-width: 3em;
+	
+	border-left-color: var(--strNavLightColor);
+	border-top-color: var(--strNavLightColor);
+	border-right-color: var(--strNavShadeColor);
+	border-bottom-color: var(--strNavShadeColor); 
+	background-color: var(--strNavBarColor);
+	color: var(--strNavTextColor);
+
+	border-width: 1pt;
+	cursor: pointer;	
+	box-shadow: 0.2em 0.3em 0.2em var(--strNavShadeColor);
+}
+
+.NavButton:active {
+	box-shadow: none;
+}
+
+.NavButton:hover{
+	color: var(--strNavBarColor);
+	background-color: var(--strNavTextColor);
+}
+
+/*EndNavBarStyle*/
+
+a{
+	color: var(--strLinkColor);
+}
+
+a:visited{
+	color: var(--strVLinkColor);
+}
+
+a:hover{
+	color: var(--strLinkColor);
+}
+
+
+</style>
+
+<!-- The following insertion allows you to add your own code directly to this head tag from the configuration screen -->
+
+
+
+<script>
+
+//<![CDATA[
+
+<!--
+
+
+//CODE FOR HANDLING NAV BUTTONS AND FUNCTION BUTTONS
+
+function FocusAButton(){
+	if (document.getElementById('CheckButton1') != null){
+		document.getElementById('CheckButton1').focus();
+	}
+	else{
+		if (document.getElementById('CheckButton2') != null){
+			document.getElementById('CheckButton2').focus();
+		}
+		else{
+			document.getElementsByTagName('button')[0].focus();
+		}
+	}
+}
+
+
+
+
+//CODE FOR HANDLING DISPLAY OF POPUP FEEDBACK BOX
+
+var topZ = 1000;
+
+function ShowMessage(Feedback){
+	var Output = Feedback + '<br /><br />';
+	document.getElementById('FeedbackContent').innerHTML = Output;
+	var FDiv = document.getElementById('FeedbackDiv');
+	topZ++;
+	FDiv.style.zIndex = topZ;
+	FDiv.style.top = TopSettingWithScrollOffset(30) + 'px';
+
+	FDiv.style.display = 'block';
+
+	ShowElements(false, 'input');
+	ShowElements(false, 'select');
+	ShowElements(false, 'object');
+	ShowElements(true, 'object', 'FeedbackContent');
+
+//Focus the OK button
+	setTimeout("document.getElementById('FeedbackOKButton').focus()", 50);
+	
+//[inclPreloadImages]
+//	RefreshImages();
+//[/inclPreloadImages]
+}
+
+function ShowElements(Show, TagName, ContainerToReverse){
+// added third argument to allow objects in the feedback box to appear
+//IE bug -- hide all the form elements that will show through the popup
+//FF on Mac bug : doesn't redisplay objects whose visibility is set to visible
+//unless the object's display property is changed
+
+	//get container object (by Id passed in, or use document otherwise)
+	TopNode = document.getElementById(ContainerToReverse);
+	var Els;
+	if (TopNode != null) {
+		Els = TopNode.getElementsByTagName(TagName);
+	} else {
+		Els = document.getElementsByTagName(TagName);
+	}
+
+	for (var i=0; i<Els.length; i++){
+		if (TagName == "object") {
+			//manipulate object elements in all browsers
+			if (Show == true){
+				Els[i].style.visibility = 'visible';
+			}
+			else{
+				Els[i].style.visibility = 'hidden';
+			}
+		} 
+	}
+}
+
+
+
+function HideFeedback(){
+	document.getElementById('FeedbackDiv').style.display = 'none';
+	ShowElements(true, 'input');
+	ShowElements(true, 'select');
+	ShowElements(true, 'object');
+}
+
+
+
+
+
+//This is the JavaScript code needed to make the exercise function
+
+//USING USER-DEFINED STRINGS:
+//If you are using the user-defined strings on the Custom tab of the Config screen, 
+//make sure the strings are correctly escaped for use in JavaScript.
+
+
+
+//CODE FOR ASSETS AND ASSET BASKETS
+
+//ASSETS SECTION
+function Asset(ID, Name, InitVal, DecPlace, ShowDuring, ShowEnd, ShowCount, CurrVal, Parent){
+	this.ID = ID;
+	this.Name=Name;
+	this.InitVal=InitVal;
+	this.DecPlace=DecPlace;
+	this.ShowDuring=ShowDuring;
+	this.ShowEnd=ShowEnd;
+	this.ShowCount=ShowCount;
+	this.CurrVal=CurrVal;
+	this.Parent = Parent;
+}
+
+function AssetGetCurrValString(){
+	var Num = this.CurrVal;
+	if (this.DecPlace > 0){
+		for (var i=0; i<this.DecPlace; i++){Num /= 10;}
+	}
+	var Result = Num.toString();
+	if (this.DecPlace > 0){
+		var DecLoc = Result.indexOf('.');
+		if (DecLoc < 0){Result += '.';}
+//Add leading zeros if required
+		while (((Result.length-1) - Result.indexOf('.'))<this.DecPlace){Result += '0';} 
+//Truncate trailing places if required
+		while (((Result.length-1) - Result.indexOf('.'))>this.DecPlace){Result = Result.substring(0, Result.length-1);}
+	}
+	return Result;
+}
+Asset.prototype.GetCurrValString=AssetGetCurrValString;
+
+function AssetGetCurrValFloat(){
+	var Num = this.CurrVal;
+	if (this.DecPlace > 0){
+		for (var i=0; i<this.DecPlace; i++){Num /= 10;}
+	}
+		return Num;
+}
+Asset.prototype.GetCurrValFloat=AssetGetCurrValFloat;
+
+function AssetSetCurrValFromFloat(Num){
+	if (this.DecPlace > 0){
+		for (var i=0; i<this.DecPlace; i++){Num *= 10;}
+	}
+	this.CurrVal = Num;
+}
+Asset.prototype.SetCurrValFromFloat=AssetSetCurrValFromFloat;
+
+function AssetReportCurrState(){
+	return this.Name + ': ' + this.GetCurrValString();
+}
+Asset.prototype.ReportCurrState=AssetReportCurrState;
+
+function AssetMeetsRequirement(ReqType, Req){
+	var Result = true;
+	switch(ReqType){
+		case 0: break;
+		case 1: Result = (this.CurrVal > Req); break;
+		case 2: Result = (this.CurrVal < Req); break;
+		case 3: Result = (this.CurrVal == Req); break;
+//New feature for 2.1.1.0: not equal to
+		case 4: Result = (this.CurrVal != Req); break;
+	}
+	return Result;
+}
+Asset.prototype.MeetsRequirement=AssetMeetsRequirement;
+
+function AssetPerformTransaction(OperatorType, Operand){
+	if ((this.Name == '_Timer_Seconds')&&(this.Parent.Active == true)){
+		this.CurrVal = Seconds;
+	}
+	switch(OperatorType){
+//Operands coming into this function should already be massaged to be at the same decimal place level as 
+//the asset being manipulated; therefore +, -, and = operators can use the values directly, but *, /, % 
+//and ^ transactions will have to reduce the operand to its true value by dividing it.
+		case 1: this.CurrVal += Operand; break; //add
+		case 2: this.CurrVal -= Operand; break; //subtract
+		case 3: for (var x=0; x<this.DecPlace; x++){Operand /= 10;}this.CurrVal *= Operand; break; //multiply
+		case 4: for (var x=0; x<this.DecPlace; x++){Operand /= 10;}this.CurrVal /= Operand; break; //divide
+		case 5: this.CurrVal = Operand; break; //set equal to
+		case 6: for (var x=0; x<this.DecPlace; x++){Operand /= 10;}this.CurrVal *= (Operand/100); break; //percentage
+//Difficult case (power of); need to change the operand and the value to core values, do the calculation, then
+//change the value back
+		case 7: 
+//Change the operand to core value
+			for (var x=0; x<this.DecPlace; x++){Operand /= 10;}
+//Change the asset value to core value
+			var y = this.CurrVal; for (var x=0; x<this.DecPlace; x++){y /= 10;}
+//Do the math
+			x = y; for (var j=1; j<Operand; j++){y *= x;} 
+//Raise the val again
+			for (var x=0; x<this.DecPlace; x++){y *= 10;}
+//Set the value
+			this.CurrVal = y;
+			break; 
+	}
+	this.CurrVal = Math.round(this.CurrVal);
+	if ((this.Name == '_Timer_Seconds')&&(this.Parent.Active == true)){
+		Seconds = this.CurrVal;
+	}
+}
+Asset.prototype.PerformTransaction=AssetPerformTransaction;
+
+function AssetCanBeShown(){
+	var Result = true;
+	if (IsEndPoint == true){
+		switch (this.ShowEnd){
+			case 0: Result = true; break;
+			case 1: Result = false; break;
+			case 2: Result = (this.CurrVal != 0); break;
+		}
+	}
+	else{
+		switch (this.ShowDuring){
+			case 0: Result = true; break;
+			case 1: Result = false; break;
+			case 2: Result = (this.CurrVal != 0); break;
+		}
+	}
+	return Result;
+}
+Asset.prototype.CanBeShown=AssetCanBeShown;
+
+function Basket(AList, Active){
+	this.Active = Active;
+	this.Assets = new Array();
+	if (AList.length > 0){
+		for (var i=0; i<AList.length; i++){
+			this.Assets[i] = new Asset(i, AList[i][0], AList[i][1], AList[i][2], AList[i][3], AList[i][4], A[i][5], A[i][6], this);
+		}
+	}
+}
+
+function BasketGetEffectiveOperand(Trans){
+//The "effective operand" is the operand converted to the right decimal place level (so an operand of 
+//5, which is to act on an asset with 2dps, should be converted to 500). This is especially difficult 
+//when the operand is the value of another asset, since that may have its own dp setting, and the two 
+//settings must be harmonized
+	var Operand = 0;
+	switch(Trans[2]){
+//First, a fixed value (this should already be specified at the right dp level)
+		case 0: Operand = Trans[3]; break;
+//Second, a random value; again, this should be specified at the right dp level already)
+		case 1: Operand = GetRand(Trans[3], Trans[4]); break;
+//Finally, the problem case: the value of another asset. In this case, we need to find out the dp 
+//settings of both the source and target asset
+//First get the real value of the source asset (so 500 for an asset with 2dp would be 5)
+		case 2: Operand = this.Assets[Trans[5]].GetCurrValFloat(); 
+//Now multiply this up according to the dp setting of the target asset (so 5 operating on a target asset
+//with dp2 would become 500)
+			for (var i=0; i<this.Assets[Trans[0]].DecPlace; i++){Operand *= 10;}
+			break;
+	}
+	return Operand;
+}
+Basket.prototype.GetEffectiveOperand=BasketGetEffectiveOperand;
+
+function BasketReportCurrState(){
+	if (this.Assets.length < 1){return '';}
+	var Result = '';
+	for (var i=0; i<this.Assets.length; i++){
+		if (this.Assets[i].CanBeShown()==true){
+			Result += '<tr><td style="text-align: right;">' + this.Assets[i].Name + ' </td>';
+			Result += '<td style="text-align: left;"> '
+			if (this.Assets[i].ShowCount==true){
+				Result += '&nbsp;:&nbsp;' + this.Assets[i].GetCurrValString();
+			}
+			Result += ' </td></tr>';
+		}
+	}
+	if (Result.length > 0){
+		Result = '<table class="AssetTable"><tr><th colspan="2">' + strYouHave + '</th></tr>' + Result + '</table>';
+	}
+	return Result;
+}
+Basket.prototype.ReportCurrState=BasketReportCurrState;
+
+function BasketCloneSelf(Copy, Active){
+	Copy = new Basket(A, false);
+	Copy.Active = Active;
+	for (var i=0; i<this.Assets.length; i++){
+		Copy.Assets[i].CurrVal = this.Assets[i].CurrVal;
+	}
+	return Copy;
+}
+Basket.prototype.CloneSelf=BasketCloneSelf;
+
+function BAssetMeetsRequirement(ANum, ReqType, Req){
+	return this.Assets[ANum].MeetsRequirement(ReqType, Req);
+}
+Basket.prototype.AssetMeetsRequirement=BAssetMeetsRequirement;
+
+function BAssetPerformTransaction(ANum, OpType, Operand){
+	this.Assets[ANum].PerformTransaction(OpType, Operand);
+}
+Basket.prototype.PerformTransaction=BAssetPerformTransaction;
+
+function BGetAssetValByName(AssetName){
+	var Result = 0;
+	for (var i=0; i<this.Assets.length; i++){
+		if (this.Assets[i].Name == AssetName){
+			Result = this.Assets[i].CurrVal;
+		}
+	}
+	return Result;
+}
+Basket.prototype.GetAssetValByName=BGetAssetValByName;
+
+//VARIABLES AND INTERFACE STRINGS
+
+var CurrBasket;
+var TempBasket;
+var CurrNode=0;
+var strYouHave='You have: ';
+var strLinkCaption='Go!';
+var strFinishCaption='Go!';
+var strDefaultRefusalMessage='Sorry! You can\'t do that.';
+var strTimesUp = 'Your time is over!';
+var strBookmarkExplanation = '';
+var strExerciseComplete = 'You have reached the end of the exercise.';
+var ShowImpossibleLinks=true;
+var StartTime = (new Date()).toLocaleString();
+var HPNStartTime = (new Date()).getTime();
+var SubmissionTimeout = 30000;
+var FollowingTrack = false;
+var CurrTime;
+var Started=false;
+
+var IsEndPoint = false;
+var Finished = false; //for compatibility with hotpot 6
+var TimeOver = false;
+
+function TransactionList(NNum, LNum){
+	this.List = new Array();
+	var i;
+	for (i=0; i<N[NNum][4].length; i++){this.List[this.List.length] = N[NNum][4][i];}
+	for (i=0; i<N[NNum][3][LNum][2].length; i++){this.List[this.List.length] = N[NNum][3][LNum][2][i];}
+	for (i=0; i<N[N[NNum][3][LNum][0]][2].length; i++){this.List[this.List.length] = N[N[NNum][3][LNum][0]][2][i];}
+}
+
+function TestTransactions(NNum, LNum){
+	var T = new TransactionList(NNum, LNum);
+	var Result = '';
+//Create a clone of the current asset basket to operate on
+	var B = CurrBasket.CloneSelf(B, false);
+
+//For each transaction
+	for (var i=0; i<T.List.length; i++){
+//Test the requirement
+		if (B.AssetMeetsRequirement(T.List[i][0], T.List[i][7], T.List[i][6]) == true){
+//If it succeeds, do the transaction
+			B.PerformTransaction(T.List[i][0], T.List[i][1], B.GetEffectiveOperand(T.List[i]));
+		}
+		else{
+//If it fails, check the refusal message
+			if (T.List[i][8].length > 0){
+				return T.List[i][8];
+			}
+//If no refusal message, return a string with spaces, otherwise return refusal message
+			else{
+				return strDefaultRefusalMessage;
+			}
+		}
+	}
+//If all have passed, return an empty string
+	return '';
+}
+
+function StartExercise(){
+	CurrBasket = new Basket(A, true);
+
+	ParseSearch();
+	CurrTime = new Date();
+	ShowCurrNode();
+
+	Started = true;
+}
+
+function StartUp(){
+
+	if (document.location.search.indexOf('___') > -1){
+		StartExercise();
+	}
+}
+
+function Restart(){
+	var d = document.location;
+	d.search = '';
+	document.location = d;
+}
+
+//CODE FOR HANDLING UNDO FUNCTIONALITY AND TRACKING NODE SEQUENCE
+function HNode(NNum, LNum, Bask){
+	this.NNum = NNum; //Number of the node
+	this.LNum = LNum; //Number of the link selected to leave the node
+	this.Basket = Bask.CloneSelf(A, false); //Copy of current basket of assets
+//	this.EntryTime = CurrTime.getTime() - HPNStartTime; //Stores time of entry to this node, offset by start time, in milliseconds
+	this.EntryTime = CurrTime.getTime(); //Stores absolute time of entry to this node
+	this.EntryTimeString = CurrTime.toLocaleString();
+	var D = new Date();
+//	this.ExitTime = D.getTime() - HPNStartTime; //Stores the time of exit from this node
+	this.ExitTime = D.getTime(); //Stores the absolute time of exit from this node
+
+	this.ExitTimeString = D.toLocaleString(); //Stores the time in human-readable format
+}
+
+function HNodeReportSelf(AddTime){
+	var S = this.NNum + ':' + this.LNum;
+	if (AddTime == true){
+		S += ':' + this.EntryTime;
+	}
+	return S;
+}
+HNode.prototype.ReportSelf=HNodeReportSelf;
+
+//Object containing the list of tracking node objects
+function HNodeList(){
+	this.Nodes = new Array();
+	var D = new Date();
+	this.StartTime = D.getTime(); // Stores the entry time of the exercise; =entry time to node 0
+	this.StartTimeString = D.toLocaleString();
+}
+
+function HNodeListReportAsSearch(IncludeTime){
+	var S = '___t;';
+	if (this.Nodes.length > 0){
+		S += this.Nodes[0].ReportSelf(IncludeTime);
+		for (var i=1; i<this.Nodes.length; i++){
+			S += ',' + this.Nodes[i].ReportSelf(IncludeTime);
+		}
+	}
+	return S;
+}
+HNodeList.prototype.ReportAsSearch=HNodeListReportAsSearch;
+
+var H = new HNodeList(); //array of HNode elements
+
+function Undo(){
+	if (H.Nodes.length < 1){
+		return;
+	}
+	var LastNode = H.Nodes.pop();
+	CurrNode = LastNode.NNum;
+	CurrBasket = LastNode.Basket.CloneSelf(A, true);
+	ShowCurrNode();
+}
+
+//CODE FOR HANDLING URL ENCODING OF STATE
+
+function ParseSearch(){
+	if (document.location.search.length < 1){return;}
+//First, get the part of the search string we're interested in
+	var StateString = document.location.search.substring(document.location.search.lastIndexOf('___'), document.location.search.length);
+	if (StateString.length > 0){
+		ParseStateString(StateString);
+	}
+}
+
+function ParseStateString(StateString){
+	var S = StateString.split(';');
+//S[0] tells us this is a bookmark (b), a scorm suspend state(s), or a track (t)
+	if (S.length > 0){
+		if (S[0] == '___b'){
+//It's a bookmark
+			ShowMessage(strBookmarkExplanation);
+		}
+		if (S[0] == '___t'){
+//It's tracking data
+			ParseTrack(S[1]);
+			return;
+		}
+	}
+//S[1] is the current node
+	if (S.length > 1){
+		if (S[1].length > 0){
+			var CN=parseInt(S[1]);
+			if ((CN>-1)&&(CN<N.length)){
+				CurrNode = CN;
+			}
+		}
+	}
+	if (S.length > 2){
+		if (S[2].length > 0){
+			var AA=S[2].split(',');
+			if (AA.length > 0){
+				for (var i=0; i<AA.length; i++){
+					var Val = parseInt(AA[i]);
+					if ((i<A.length)&&(Val != NaN)){
+						CurrBasket.Assets[i].CurrVal = Val;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+var Footprints = new Array();
+
+function ParseTrack(Track){
+	if (Track.length < 3){
+		return;
+	}
+
+	var Steps = Track.split(',');
+	if (Steps.length < 2){
+		return;
+	}
+//We have valid track data, so the exercise can be displayed accordingly
+	FollowingTrack = true;
+	var NNum = 0;
+	var LNum = 0;
+	var T = 0;
+	for (var i=0; i<Steps.length; i++){
+		var Step = Steps[i].split(':');
+		NNum = parseInt(Step[0]);
+		if (NNum > -1){
+			LNum = parseInt(Step[1]);
+			if (LNum > -1){
+				if (Step.length > 2){
+					T = parseInt(Step[2]);
+				}
+				Footprints.push(new Array(NNum, LNum, T));
+			}
+		}
+	}
+}
+
+function CreateBookmark(Prefix){
+	var S = '___' + Prefix + ';' + CurrNode + ';';
+	if (CurrBasket.Assets.length > 0){
+		S += CurrBasket.Assets[0].CurrVal;
+		for (var i=1; i<CurrBasket.Assets.length; i++){
+			S += ',' + CurrBasket.Assets[i].CurrVal;
+		}
+	}
+
+	return S;
+}
+
+function SetBookmark(){
+	if (Started == false){return;}
+	var Temp = document.location.search;
+	if (Temp.length < 1){
+		Temp = '?';
+	}
+	else{
+		Temp += '&';
+	}
+	document.location.search = Temp + CreateBookmark('b');
+}
+
+function MillisecondsToTimeReadout(MS){
+	var DT = new Date(MS);
+	return DT.getHours() + ':' + DT.getMinutes() + ':' + DT.getSeconds() + ':' + DT.getMilliseconds();
+}
+
+function ShowCurrNode(){
+	var DPT = N[CurrNode][0];
+	if ((FollowingTrack==true)&&(Footprints.length > 0)){
+		if (Footprints[0][2] > 0){
+			DPT += ' (' + MillisecondsToTimeReadout(Footprints[0][2]) + ')';
+		}
+	}
+	document.getElementById('DPTitle').innerHTML = DPT;
+	document.getElementById('DPContentsDiv').innerHTML = N[CurrNode][1];
+	var Links = '';
+	var Refusal = '';
+	var ValidLinks = 0;
+	for (var LNum=0; LNum<N[CurrNode][3].length; LNum++){
+		if ((FollowingTrack==true)&&(Footprints.length > 0)){
+//We're following a track, so we only want to make a working link for the correct item
+			if (LNum == Footprints[0][1]){
+				Links += MakeLink(CurrNode, LNum);
+				ValidLinks++;
+			}
+			else{
+				Links += MakeDummyLink(CurrNode, LNum);
+			}
+
+		}
+		else{
+			Refusal = TestTransactions(CurrNode, LNum);
+			if (Refusal.length > 0){
+				if (N[CurrNode][3][LNum][4] < 1){
+					N[CurrNode][3][LNum][3] = Refusal;
+					Links += MakeRefusalLink(CurrNode, LNum);
+				}
+			}
+			else{
+				Links += MakeLink(CurrNode, LNum);
+				ValidLinks++;
+			}
+		}
+	}
+	if (Links.length > 0){
+		Links = '<table class="LinkTable">' + Links + '</table>';
+	}
+//Next line added for 2.2.0.3 to hide final assets when retreating from an end point.
+	IsEndPoint = false;
+	if (ValidLinks < 1){
+		IsEndPoint = true;
+		Finished = true;
+		if (document.getElementById('store') != null){
+			Links = '<table class="LinkTable">' + MakeEndLink() + '</table>';
+		}
+		else{
+			if (document.getElementById('UndoButton') == null){
+				Links = '<table class="LinkTable"><tr><td>' + strExerciseComplete + '</td></tr></table>';
+			}
+		}
+
+	}
+	document.getElementById('LinkListDiv').innerHTML = Links;
+
+//Show assets now -- endpoint issue may affect which are shown
+	var AssetOutput = CurrBasket.ReportCurrState();
+	if (AssetOutput.length > 0){
+		document.getElementById('AssetsDiv').innerHTML = AssetOutput;
+		document.getElementById('AssetDisplay').style.display = 'block';
+	}
+	else{
+		document.getElementById('AssetsDiv').innerHTML = '';
+		document.getElementById('AssetDisplay').style.display = 'none';
+	}
+
+//Remove the last footprint from the track
+	if (Footprints.length > 0){Footprints.shift();}
+
+	if ((IsEndPoint==true)&&(document.getElementById('UndoButton') == null)){
+//Record current state in the history array
+		H.Nodes.push(new HNode(CurrNode, LNum, CurrBasket));
+
+//Reset the current time
+		CurrTime = new Date();
+		setTimeout('Finish()', SubmissionTimeout);
+	}
+}
+
+function MakeFunctionButton(Caption, Action){
+	var Result = '<button class="FuncButton" onclick="' + Action + '">' + Caption + '</button>';
+	return Result;
+}
+
+function MakeRefusalLink(NNum, LNum){
+	var Result = '<tr><td>';
+	Result += MakeFunctionButton(strLinkCaption, 'ShowMessage(N[' + NNum + '][3][' + LNum + '][3])');
+	Result += '</td>';
+	Result += '<td>' + N[NNum][3][LNum][1] + '</td></tr>';
+	return Result;
+}
+
+function MakeLink(NNum, LNum){
+	var Result = '<tr><td>';
+	Result += MakeFunctionButton(strLinkCaption, 'FollowLink(' + LNum + ')');
+	Result += '</td>';
+	Result += '<td>' + N[NNum][3][LNum][1] + '</td></tr>';
+	return Result;
+}
+
+function MakeDummyLink(NNum, LNum){
+	var Result = '<tr><td style="text-align: right;">&nbsp;&#x25cf;&nbsp;</td>';
+	Result += '<td>' + N[NNum][3][LNum][1] + '</td></tr>';
+	return Result;
+}
+
+function MakeEndLink(){
+	var Result = '<tr><td>';
+	Result += MakeFunctionButton(strFinishCaption, 'Finish()');
+	Result += '</td>';
+	Result += '<td>' + strExerciseComplete + '</td></tr>';
+	return Result;
+}
+
+function FollowLink(LNum){
+
+//Record current state in the history array
+	H.Nodes.push(new HNode(CurrNode, LNum, CurrBasket));
+
+//Reset the current time
+	CurrTime = new Date();
+
+	var T = new TransactionList(CurrNode, LNum);
+//For each transaction
+	for (var i=0; i<T.List.length; i++){
+//Do the transaction
+		CurrBasket.PerformTransaction(T.List[i][0], T.List[i][1], CurrBasket.GetEffectiveOperand(T.List[i]));
+	}
+//Now change the node
+	CurrNode = N[CurrNode][3][LNum][0];
+	ShowCurrNode();
+
+}
+
+
+
+//HOTPOTNET FUNCTIONS
+function Finish(){
+//If there's a form, fill it out and submit it
+	try{
+		var F = document.getElementById('store');
+		if (F != null){
+			F.starttime.value = HPNStartTime;
+			F.endtime.value = (new Date()).getTime();
+			F.mark.value = CurrBasket.GetAssetValByName('Score'); //if an asset called "Score" exists, this value will be submitted as the mark
+			var Temp = '<?xml version="1.0"?><hpnetresult><fields>';
+			Temp += '<field><fieldname>endbookmark</fieldname><fieldtype>url-search</fieldtype><fieldlabel>Click here to see the final position in the maze</fieldlabel><fieldlabelid>QuandaryViewFinalPosition</fieldlabelid><fielddata>' + CreateBookmark('b') + '</fielddata></field>';
+			Temp += '<field><fieldname>track</fieldname><fieldtype>url-search</fieldtype><fieldlabel>Click here to track the student through the maze.</fieldlabel><fieldlabelid>QuandaryViewTrack</fieldlabelid><fielddata>' + H.ReportAsSearch(false) + '</fielddata></field>';
+			Temp += '<field><fieldname>timedtrack</fieldname><fieldtype>url-search</fieldtype><fieldlabelid>QuandaryViewTimedTrack</fieldlabelid><fieldlabel>Click here to track the student through the maze with timing data.</fieldlabel><fielddata>' + H.ReportAsSearch(true) + '</fielddata></field>';
+			Temp += '</fields></hpnetresult>';
+			F.detail.value = Temp;
+			F.submit();
+
+		}
+	}
+	catch(er){
+		return;
+	}
+}
+
+//UTILITY FUNCTIONS
+
+function GetScrollTop(){
+	if (document.documentElement && document.documentElement.scrollTop){
+		return document.documentElement.scrollTop;
+	}
+	else{
+		if (document.body){
+ 			return document.body.scrollTop;
+		}
+		else{
+			return window.pageYOffset;
+		}
+	}
+}
+
+function GetViewportHeight(){
+	if (window.innerHeight){
+		return window.innerHeight;
+	}
+	else{
+		return document.getElementsByTagName('body')[0].clientHeight;
+	}
+}
+
+function TopSettingWithScrollOffset(TopPercent){
+	var T = Math.floor(GetViewportHeight() * (TopPercent/100));
+	return GetScrollTop() + T; 
+}
+
+function GetRand(Lower, Upper){
+	var Rng = Upper-Lower;
+	return (Math.round(Math.random()*Rng)) + Lower;
+}
+
+var A = new Array();
+
+
+var N = new Array();
+N[0] = new Array();
+N[0][0] = 'Introduction';
+N[0][1] = 'This is an interactive story. Read and choose the outcomes along your way. If you don\'t like the ending, you can choose a different one. Interesting? Let\'s start.';
+N[0][2] = new Array();
+
+N[0][3] = new Array();
+N[0][3][0] = new Array();
+N[0][3][0][0] = 1;
+N[0][3][0][1] = 'Start';
+N[0][3][0][2] = new Array();
+
+N[0][3][0][3] = '';
+N[0][3][0][4] = 0;
+
+
+N[0][4] = new Array();
+
+
+N[1] = new Array();
+N[1][0] = 'Kidnapped';
+N[1][1] = 'Once upon a time there was a Ninja world. <br /><img src="people.png" alt="people.png" title="people" width="177" height="283" style="display: block; margin-left: auto; margin-right: auto; text-align: center;"/><br />On 30th March, 2020 India suddenly disappeared. The land and houses, buildings, schools, malls everything was there but the people were not there. There was not a single man or woman left in the whole country. The whole world was surprised. Everyone was wondering what happened to the people. One week passed but they did not know what happened. Now all, investigators and detectives of the world came to find out what happened. After six weeks they found out that 60000 huge ships had come there at night. And then all the people disappeared. All Indians had been kidnapped. This was very surprising. How could anyone kidnap the whole India? India is a very big country. Two months passed but there was still no news of where the people of India were! Detectives were doing their best job.<br /><br />';
+N[1][2] = new Array();
+
+N[1][3] = new Array();
+N[1][3][0] = new Array();
+N[1][3][0][0] = 2;
+N[1][3][0][1] = 'Six Months Later';
+N[1][3][0][2] = new Array();
+
+N[1][3][0][3] = '';
+N[1][3][0][4] = 0;
+
+
+N[1][4] = new Array();
+
+
+N[2] = new Array();
+N[2][0] = 'Six Months Later';
+N[2][1] = 'Detectives said 60000 huge ships came there. &#x201C;We are trying to track where they went. There are no ships like those huge ships in the world so it will be easy to track them. They started searching the ship. They went into the deep Indian Ocean. The next day they found out that London was now like India. All people were kidnapped, but no one knew where the people were! The funny part of the story is that when they kidnapped the Londoners, it was a sunny day. One week passed but no mark of ships was found. They could not see any secret land there. Now six more days passed then they found out the whole Europe had been kidnapped. The next day they found out all the people of Australia (Continent) had been kidnapped. After two more days they reached an island. There they saw huge ships going. They had seen all types of ships but they had never seen such type of huge ships. They landed on that island. They could not see any man but they could see the strange huge ships everywhere. Now they called them secret ships. They went forward but the secret ships didn&#x2019;t end. ';
+N[2][2] = new Array();
+
+N[2][3] = new Array();
+N[2][3][0] = new Array();
+N[2][3][0][0] = 3;
+N[2][3][0][1] = 'One Month Later';
+N[2][3][0][2] = new Array();
+
+N[2][3][0][3] = '';
+N[2][3][0][4] = 0;
+
+
+N[2][4] = new Array();
+
+
+N[3] = new Array();
+N[3][0] = 'One Month Later';
+N[3][1] = 'All the world was kidnapped except the people of Pakistan and Canada. Another team of Pakistanis and Canadians went on ships to search the missing people. They went and went. They circled the Earth three times.<br /><br /><img src="../Published Files/news.png" alt="news.png" title="news" width="501" height="273" style="display: block; margin-left: auto; margin-right: auto; text-align: center;"/>';
+N[3][2] = new Array();
+
+N[3][3] = new Array();
+N[3][3][0] = new Array();
+N[3][3][0][0] = 4;
+N[3][3][0][1] = 'Thirty three days later.';
+N[3][3][0][2] = new Array();
+
+N[3][3][0][3] = '';
+N[3][3][0][4] = 0;
+
+
+N[3][4] = new Array();
+
+
+N[4] = new Array();
+N[4][0] = 'Thirty three days later.';
+N[4][1] = '<br />Now this was their 6th circle around the globe. Then magically they went into some world. There was fog. No one could see anything. This stayed for 6 days. Then they saw land very far. After 6 days they reached an unknown land. There were many huge ships. Some on water even some on land. The island looked normal. Some of the People there had lion heads. They got out of the ship and went into a hotel. They booked a room for one week. They went into the market. All was same like the earth but interesting thing was that all people had at least one servant but their heads were not lion heads. They recognized that all servants were kidnapped people from Australia and the USA. They met these servants who told them the whole story. They told the search team to get ready to fight. ';
+N[4][2] = new Array();
+
+N[4][3] = new Array();
+N[4][3][0] = new Array();
+N[4][3][0][0] = 5;
+N[4][3][0][1] = 'Fight';
+N[4][3][0][2] = new Array();
+
+N[4][3][0][3] = '';
+N[4][3][0][4] = 0;
+
+N[4][3][1] = new Array();
+N[4][3][1][0] = 6;
+N[4][3][1][1] = 'Talk to the King';
+N[4][3][1][2] = new Array();
+
+N[4][3][1][3] = '';
+N[4][3][1][4] = 0;
+
+
+N[4][4] = new Array();
+
+
+N[5] = new Array();
+N[5][0] = 'Fight';
+N[5][1] = 'They fight but the Ninja World army is tough. They all died.<br /><br />The End<br /><br />Sorry, you ruined it! Better luck next time.<br /><br />Keep reading &#x201C;<a style="cursor: pointer; text-decoration: underline;" onclick="window.open(\'https://saadonlinespot.blogspot.com\');return false;">Saad Rashid&#x2019;s Online Books</a>&#x201D;.<br />If you like it give feedback on <a style="cursor: pointer; text-decoration: underline;" onclick="window.open(\'mailto:@saadrashid.pk@gmail.com\');return false;">saadrashid.pk@gmail.com</a>.<br />';
+N[5][2] = new Array();
+
+N[5][3] = new Array();
+
+N[5][4] = new Array();
+
+
+N[6] = new Array();
+N[6][0] = 'Talk to the King';
+N[6][1] = 'They slept in the hotel for one night. Now the team of Pakistanis and Canadians also reached the Ninja world. Both the teams started working together. Next day they asked the people where their king lived. They said &#x201C;Go straight on this road and you will see a castle. The king lives there&#x201D;. <br />&#x201C;How far is it?&#x201D;<br /> &#x201C;600 km&#x201D;<br /> &#x201C;We cannot walk for 600 km.&#x201D;<br /> &#x201C;Yes, but you asked the way to the castle and we told you&#x201D;<br /> &#x201C;Can you give us 2 cars for free?&#x201D;<br /> &#x201C;We can give you a car for 500 Henney.&#x201D;<br />&#x201C;How much is a Henney?&#x201D;<br />&#x201C;One Henney is equal to 100 Canadian dollars&#x201D;.<br /> They paid them the money and bought two cars. They took the fastest route. Their speed was 200 km/h. After 3 hours they stopped at a restaurant where they ate some food and then continued their journey. After 45 minutes, they reached the castle. It took them around 4 hours to go to the castle. They went to the king. The King said &#x2018;&#x2019; I am busy now I will talk to you tomorrow&#x2019;&#x2019;. The king said to vizier &#x201C;Book rooms for them in a hotel. I will pay rent for them.&#x201D; They stayed in the hotel for a night. Next day they went to the king. The king was only one foot tall. The detectives asked the vizier, &#x201C;Is he the king or his son?&#x201D; The vizier said &#x201C;no, he is the king&#x201D;. The detectives asked the vizier, &#x201C;Why the king is only one foot tall?&#x201D; Vizier said &#x201C;because he&#x2019;s a ruler&#x201D;. The detectives laughed. The king asked them, &#x201C;Why are you here?&#x201D; One detective said, &#x201C;Why did you kidnap our people and make them slaves?&#x201D; The king said &#x201C;This is a long story. Do you want to hear it?&#x201D; The detectives said, &#x201C;Yes, we want to hear it.&#x201D; <br />&#x201C;The story began two months ago. So two month earlier our slaves fought with us for their freedom and they won the fight. Now they were not slaves. We spent 15 days without slaves. We need new slaves. We have discovered that you want to kill us so we kidnapped your people and made them our slaves. One detective said &#x201C;Do you know our world?&#x201D; He said, &#x201C;Yes&#x201D;. Another detective said, &#x201C;We did not know your world before so how can we kill your people&#x201D;. Another detective said, &#x201C;I have an Idea about this problem but I will tell it tomorrow&#x201D;. He was a Pakistani. His name was Hamid Zulfiqar. That night they stayed in the castle. The next day they went to the king again. <br />Hamid Zulfiqar said, &#x201C;We all know that nobody wants to cook food and clean the house. Food and cleanliness is important for our health. We also know that mostly this work is done by mothers. Now there will be a fixed day of housework for every person in the house. Now there will be four days for working in the office. Do you like it?&#x201D;<br />King said &#x2018;I am really impressed. I was thinking that there should be a day of Father&#x2019;s with kids and play with them&#x2019;. <br />Hamid said, &#x201C;Off course&#x201D;. He gave a paper to the king on which all was written that he had said. <br />The king said &#x201C;I invite you all to dinner. There we will discuss about this&#x201D;..<br />';
+N[6][2] = new Array();
+
+N[6][3] = new Array();
+N[6][3][0] = new Array();
+N[6][3][0][0] = 7;
+N[6][3][0][1] = 'At Dinner';
+N[6][3][0][2] = new Array();
+
+N[6][3][0][3] = '';
+N[6][3][0][4] = 0;
+
+
+N[6][4] = new Array();
+
+
+N[7] = new Array();
+N[7][0] = 'At Dinner';
+N[7][1] = 'They decided these will be rules now. They decided a meeting the next day to finalize this with his advisers and viziers. They decided another meeting the following day about release of the earth people. The next day the king canceled the meeting. He wanted the meeting the next day. This day the king showed the detectives around bazaars, monuments, historical and other places. The king told them information about the Ninja world. They learnt:<br /><br /><br />1. The men wear Frocks and ladies wear pant-shirt.<br />2. They have more technology than our world.<br />3 Their cars highest speed is 660 km/hr<br />4. They have only tablets to use.<br />5. They have tablets that do not hurt their eyes.<br />6. They have lion heads so they wear masks of humans.<br />7. They eat insects.<br />8. They live in houses with walls that are transparent.<br />';
+N[7][2] = new Array();
+
+N[7][3] = new Array();
+N[7][3][0] = new Array();
+N[7][3][0][0] = 8;
+N[7][3][0][1] = 'The Meetings';
+N[7][3][0][2] = new Array();
+
+N[7][3][0][3] = '';
+N[7][3][0][4] = 0;
+
+
+N[7][4] = new Array();
+
+
+N[8] = new Array();
+N[8][0] = 'The Meetings';
+N[8][1] = 'In the first meeting they decided that now they would be rules and if anyone did not follow them he would have to pay 500 Henneys. In the second meeting the king offered Hamid to be his advisor or the vizier. Hamid said, &#x201C;Okay, I will be the advisor and vizier but first you will have to release our people&#x201D;. The king said &#x201C;Okay, we will release your people because now we have rules in which we do not need slaves&#x201D;. Hamid asked &#x201C;Can we go back to our world?&#x201D; The king said, &#x201C;We vanished water so from now Earth and Ninja world will be together&#x201D;. Hamid asked &#x201C;All the water is Vanished?&#x201D; The king said &#x201C;No only water that separated Earth and the Ninja world. Now the meeting ended. The next day they announced the new law, Hamid was declared the vizier and the Earth people were released. All people were very happy. After that everyone followed the laws and lived happily. Hamid Zulfiqar was having a happy life with the king. One year later the king retired. His son who was now the vizier and Hamid Zulfiqar was the king.<br /><br />The End <br /><br />Congratulations! You made a right choice!<br /><br />Keep reading &#x201C;<a style="cursor: pointer; text-decoration: underline;" onclick="window.open(\'https://saadonlinespot.blogspot.com\');return false;">Saad Rashid&#x2019;s Online Books</a>&#x201D;.<br />If you like it give feedback on <a style="cursor: pointer; text-decoration: underline;" onclick="window.open(\'mailto:@saadrashid.pk@gmail.com\');return false;">saadrashid.pk@gmail.com</a>.<br /><br />';
+N[8][2] = new Array();
+
+N[8][3] = new Array();
+
+N[8][4] = new Array();
+
+
+
+
+
+
+//-->
+
+//]]>
+
+</script>
+
+</head>
+
+<body onload="StartUp()" >
+
+<!-- BeginTopNavButtons -->
+
+
+<div class="NavButtonBar" id="TopNavBar">
+
+
+<button class="NavButton" onclick="history.back(); return false;">&lt;=</button>
+
+
+
+<button class="NavButton" onclick="location=''; return false;"> Index </button>
+
+
+
+<button class="NavButton" onclick="location=''; return false;">=&gt;</button>
+
+
+</div>
+
+
+
+<!-- EndTopNavButtons -->
+
+<div class="Titles">
+	<h2 class="ExerciseTitle">The Ninja World</h2>
+
+
+
+</div>
+
+<div class="DecisionPoint">
+
+
+<div class="ControlButtons">
+
+<button class="FuncButton" onclick="SetBookmark()">Bookmark</button>
+
+<button class="FuncButton" onclick="Restart()">Restart</button>
+
+
+
+</div>
+
+	<h3 id="DPTitle" class="DecisionPointTitle">&#160;</h3>
+
+<table class="DPTable"><tr>
+<td>
+
+	<div id="DPContentsDiv" class="DecisionPointText">
+
+		<div class="Instructions">
+		
+		</div>
+
+		<div class="Instructions">
+		
+		</div>
+
+	</div>
+
+	<div id="LinkListDiv" class="LinkList">
+
+		<div style="text-align: center">
+<button class="FuncButton" onclick="StartExercise()">Start</button>
+		</div>
+	</div>
+
+</td>
+<td id="AssetDisplay">
+	<div id="AssetsDiv" class="Assets">
+
+	</div>
+</td></tr></table>
+</div>
+
+
+<div class="Feedback" id="FeedbackDiv">
+<div class="FeedbackText" id="FeedbackContent"></div>
+<button id="FeedbackOKButton" class="FuncButton" onclick="HideFeedback(); return false;">&nbsp;OK&nbsp;</button>
+</div>
+
+<!-- BeginBottomNavButtons -->
+
+
+<div class="NavButtonBar" id="BottomNavBar">
+
+
+<button class="NavButton" onclick="history.back(); return false;">&lt;=</button>
+
+
+
+<button class="NavButton" onclick="location=''; return false;"> Index </button>
+
+
+
+<button class="NavButton" onclick="location=''; return false;">=&gt;</button>
+
+
+</div>
+
+
+
+<!-- EndBottomNavButtons -->
+
+<!-- BeginSubmissionForm -->
+
+<!-- EndSubmissionForm -->
+
+
+</body>
+</html>
