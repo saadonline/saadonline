@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<head>
+<title> Saad Online spot </title>
+</head>
+<body>
+<h2> About Me </h2>
+<p>Hello Everyone! My Name is Saad Rashid! Welcome to my website Saad 
+Online Spot!</p> 
+<p> I make animations,games and write stories and share them here! Please check out them and give me feedback!</p>
+<img src="MyPic.JPG" alt="My Pic">
+</body>
+</html>
